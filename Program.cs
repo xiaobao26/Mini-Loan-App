@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using Mini_Loan_App.Infrastructure;
+
 namespace Mini_Loan_App;
 
 public class Program
@@ -5,6 +8,12 @@ public class Program
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
+        
+        // Register DbContext to Container
+        builder.Services.AddDbContext<LoanDbContext>(opt =>
+        {
+            opt.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
+        });
 
         // Add services to the container.
         builder.Services.AddAuthorization();
