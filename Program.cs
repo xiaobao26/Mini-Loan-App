@@ -1,5 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Mini_Loan_App.Infrastructure;
+using Mini_Loan_App.Infrastructure.Repositories;
+using Mini_Loan_App.Services;
+using Mini_Loan_App.Services.Interfaces;
 
 namespace Mini_Loan_App;
 
@@ -14,11 +17,19 @@ public class Program
         {
             opt.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
         });
-
+        
+        // Register Controllers
+        builder.Services.AddControllers();
+        
         // Add services to the container.
+        builder.Services.AddScoped<ILoanRepository, LoanRepository>();
+        builder.Services.AddScoped<ILoanService, LoanService>();
+        builder.Services.AddScoped<IApprovalPolicy, ApprovalPolicy>();
+        
+        
         builder.Services.AddAuthorization();
 
-        // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+        // Swagger
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
 
@@ -32,8 +43,9 @@ public class Program
         }
 
         app.UseHttpsRedirection();
-
         app.UseAuthorization();
+        
+        app.MapControllers();
         app.Run();
     }
 }
