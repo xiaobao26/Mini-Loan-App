@@ -7,6 +7,10 @@ public class ApprovalPolicy: IApprovalPolicy
 {
     public LoanStatus Decide(decimal principal, decimal annualRate, int termMonths, decimal applicantScore)
     {
+        if (principal <= 0 || annualRate < 0 || termMonths <= 0)
+        {
+            return LoanStatus.Rejected;
+        }
         // Reject if applicant's score is too low (high risk).
         if (applicantScore < 0.5m)
         {

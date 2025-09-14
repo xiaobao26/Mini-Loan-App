@@ -25,6 +25,7 @@ public class Program
         builder.Services.AddScoped<ILoanRepository, LoanRepository>();
         builder.Services.AddScoped<ILoanService, LoanService>();
         builder.Services.AddScoped<IApprovalPolicy, ApprovalPolicy>();
+        builder.Services.AddScoped<IAmortizationService, AmortizationService>();
         
         
         builder.Services.AddAuthorization();

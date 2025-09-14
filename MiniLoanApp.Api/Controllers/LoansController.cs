@@ -56,7 +56,7 @@ public class LoansController: ControllerBase
         return Ok(response);
     }
     
-    [HttpGet("{id:guid}/schedule")]
+    [HttpGet("{id}/schedule")]
     public async Task<ActionResult<IReadOnlyList<PaymentItem>>> GetSchedule(Guid id, [FromQuery] DateTime? firstDueDate)
     {
         var dueDate = firstDueDate ?? DateTime.Today.AddMonths(1); // default: next month
