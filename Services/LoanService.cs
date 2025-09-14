@@ -1,5 +1,6 @@
 using Mini_Loan_App.Controllers.Dtos;
-using Mini_Loan_App.Domain;
+using Mini_Loan_App.Domain.Entities;
+using Mini_Loan_App.Domain.Models;
 using Mini_Loan_App.Infrastructure.Repositories;
 using Mini_Loan_App.Services.Interfaces;
 
@@ -9,11 +10,13 @@ public class LoanService: ILoanService
 {
     private readonly ILoanRepository _loanRepository;
     private readonly IApprovalPolicy _approvalPolicy;
+    private readonly IAmortizationService _amortizationService;
 
-    public LoanService(ILoanRepository loanRepository, IApprovalPolicy approvalPolicy)
+    public LoanService(ILoanRepository loanRepository, IApprovalPolicy approvalPolicy, IAmortizationService amortizationService)
     {
         _loanRepository = loanRepository;
         _approvalPolicy = approvalPolicy;
+        _amortizationService = amortizationService;
     }
 
     public async Task<Loan> CreateAsync(CreateLoanRequest request)
@@ -36,5 +39,13 @@ public class LoanService: ILoanService
     public async Task<Loan?> GetByIdAsync(Guid id)
     {
         return await _loanRepository.GetByIdAsync(id);
+    }
+
+    public async Task<IReadOnlyList<PaymentItem>> GetScheduleAsync(Guid loanId, DateTime firstDueDate)
+    {
+        var loan = await _loanRepository.GetByIdAsync(loanId)
+                   ?? throw new KeyNotFoundException("Loan not found");
+
+        return _amortizationService.GenerateSchedule(firstDueDate, loan.Principal, loan.AnnualRate, loan.TermMonths);
     }
 }

@@ -1,4 +1,4 @@
-using Mini_Loan_App.Domain;
+using Mini_Loan_App.Domain.Entities;
 
 namespace Mini_Loan_App.Infrastructure.Repositories;
 

@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Mini_Loan_App.Controllers.Dtos;
+using Mini_Loan_App.Domain.Models;
 using Mini_Loan_App.Services.Interfaces;
 
 namespace Mini_Loan_App.Controllers;
@@ -53,5 +54,13 @@ public class LoansController: ControllerBase
             loan.Status
         );
         return Ok(response);
+    }
+    
+    [HttpGet("{id:guid}/schedule")]
+    public async Task<ActionResult<IReadOnlyList<PaymentItem>>> GetSchedule(Guid id, [FromQuery] DateTime? firstDueDate)
+    {
+        var dueDate = firstDueDate ?? DateTime.Today.AddMonths(1); // default: next month
+        var schedule = await _loanService.GetScheduleAsync(id, dueDate);
+        return Ok(schedule);
     }
 }

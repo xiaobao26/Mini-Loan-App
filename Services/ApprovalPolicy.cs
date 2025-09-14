@@ -1,4 +1,4 @@
-using Mini_Loan_App.Domain.Enum;
+using Mini_Loan_App.Domain.Enums;
 using Mini_Loan_App.Services.Interfaces;
 
 namespace Mini_Loan_App.Services;

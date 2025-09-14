@@ -53,7 +53,7 @@ Features:
 ## 🚀 Roadmap
 - ✅ Step 1: Database connection + Init migration
 - ✅ Step 2: Loan Application flow + Query Loan
-- 🔜 Step 3: Repayment schedule generation(Equal Monthly Installment)
+- ✅ Step 3: Repayment schedule generation(Equal Monthly Installment)
 - 🔜 Step 4: Unit tests for core logic
 - 🔜 Step 5: Event publishing with Service Bus
 - 🔜 Step 6: Azure Function consumer (simulate notifications)

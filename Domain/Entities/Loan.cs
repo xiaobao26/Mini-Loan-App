@@ -1,6 +1,6 @@
-using Mini_Loan_App.Domain.Enum;
+using Mini_Loan_App.Domain.Enums;
 
-namespace Mini_Loan_App.Domain;
+namespace Mini_Loan_App.Domain.Entities;
 
 public class Loan
 {

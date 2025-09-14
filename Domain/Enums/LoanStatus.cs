@@ -1,4 +1,4 @@
-namespace Mini_Loan_App.Domain.Enum;
+namespace Mini_Loan_App.Domain.Enums;
 
 public enum LoanStatus
 {
