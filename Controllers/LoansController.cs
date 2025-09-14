@@ -32,4 +32,26 @@ public class LoansController: ControllerBase
         
         return Ok( response );
     }
+
+
+    [HttpGet("id")]
+    public async Task<ActionResult<LoanResponse>> GetLoanById(Guid id)
+    {
+        var loan = await _loanService.GetByIdAsync(id);
+        if (loan is null)
+        {
+            return NotFound();
+        }
+
+        var response = new LoanResponse(
+            loan.Id,
+            loan.ApplicantName,
+            loan.Principal,
+            loan.AnnualRate,
+            loan.TermMonths,
+            loan.CreatedAt,
+            loan.Status
+        );
+        return Ok(response);
+    }
 }

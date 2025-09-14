@@ -32,4 +32,9 @@ public class LoanService: ILoanService
         await _loanRepository.CreateAsync(loan);
         return loan;
     }
+
+    public async Task<Loan?> GetByIdAsync(Guid id)
+    {
+        return await _loanRepository.GetByIdAsync(id);
+    }
 }
