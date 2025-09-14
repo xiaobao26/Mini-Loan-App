@@ -1,6 +1,7 @@
 using Mini_Loan_App.Controllers.Dtos;
 using Mini_Loan_App.Domain.Entities;
 using Mini_Loan_App.Domain.Models;
+using Mini_Loan_App.Infrastructure.Messaging;
 using Mini_Loan_App.Infrastructure.Repositories;
 using Mini_Loan_App.Services.Interfaces;
 
@@ -11,12 +12,14 @@ public class LoanService: ILoanService
     private readonly ILoanRepository _loanRepository;
     private readonly IApprovalPolicy _approvalPolicy;
     private readonly IAmortizationService _amortizationService;
+    private readonly ILoanTopicPublisher _loanTopicPublisher;
 
-    public LoanService(ILoanRepository loanRepository, IApprovalPolicy approvalPolicy, IAmortizationService amortizationService)
+    public LoanService(ILoanRepository loanRepository, IApprovalPolicy approvalPolicy, IAmortizationService amortizationService, ILoanTopicPublisher loanTopicPublisher)
     {
         _loanRepository = loanRepository;
         _approvalPolicy = approvalPolicy;
         _amortizationService = amortizationService;
+        _loanTopicPublisher = loanTopicPublisher;
     }
 
     public async Task<Loan> CreateAsync(CreateLoanRequest request)
@@ -31,8 +34,10 @@ public class LoanService: ILoanService
             CreatedAt = DateTimeOffset.UtcNow,
             Status = _approvalPolicy.Decide(request.Principal, request.AnnualRate, request.TermMonths, request.ApplicantScore ?? 0.7m)
         };
-
+        // Save to DB
         await _loanRepository.CreateAsync(loan);
+        // Publish to message broker
+        await _loanTopicPublisher.PublishLoanRequestedAsync(loan.Id);
         return loan;
     }
 

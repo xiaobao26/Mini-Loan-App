@@ -55,8 +55,8 @@ Features:
 - ✅ Step 2: Loan Application flow + Query Loan
 - ✅ Step 3: Repayment schedule generation(Equal Monthly Installment)
 - ✅ Step 4: Unit tests for core logic
-- 🔜 Step 5: Event publishing with Service Bus
-- 🔜 Step 6: Azure Function consumer (simulate notifications)
+- ✅ Step 5: Event publishing with Service Bus
+- ✅ Step 6: Azure Function consumer (simulate notifications)
 - 🔜 Step 7: CI/CD pipeline with GitHub Actions
 - 🔜 Step 8: Deploy API to Azure App Service
 - 🔜 Step 9: Secure secrets with Azure Key Vault

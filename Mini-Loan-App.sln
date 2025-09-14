@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniLoanApp.Api", "MiniLoan
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniLoanApp.Test", "MiniLoanApp.Test\MiniLoanApp.Test.csproj", "{E6D0E26E-6502-4176-AEAA-20F773BB1652}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoanProcessorFunction", "LoanProcessorFunction\LoanProcessorFunction.csproj", "{8B0CECD0-6FDD-4B53-9526-8F61A21ACE77}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,5 +41,17 @@ Global
 		{E6D0E26E-6502-4176-AEAA-20F773BB1652}.Release|x64.Build.0 = Release|Any CPU
 		{E6D0E26E-6502-4176-AEAA-20F773BB1652}.Release|x86.ActiveCfg = Release|Any CPU
 		{E6D0E26E-6502-4176-AEAA-20F773BB1652}.Release|x86.Build.0 = Release|Any CPU
+		{8B0CECD0-6FDD-4B53-9526-8F61A21ACE77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B0CECD0-6FDD-4B53-9526-8F61A21ACE77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B0CECD0-6FDD-4B53-9526-8F61A21ACE77}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8B0CECD0-6FDD-4B53-9526-8F61A21ACE77}.Debug|x64.Build.0 = Debug|Any CPU
+		{8B0CECD0-6FDD-4B53-9526-8F61A21ACE77}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8B0CECD0-6FDD-4B53-9526-8F61A21ACE77}.Debug|x86.Build.0 = Debug|Any CPU
+		{8B0CECD0-6FDD-4B53-9526-8F61A21ACE77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B0CECD0-6FDD-4B53-9526-8F61A21ACE77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B0CECD0-6FDD-4B53-9526-8F61A21ACE77}.Release|x64.ActiveCfg = Release|Any CPU
+		{8B0CECD0-6FDD-4B53-9526-8F61A21ACE77}.Release|x64.Build.0 = Release|Any CPU
+		{8B0CECD0-6FDD-4B53-9526-8F61A21ACE77}.Release|x86.ActiveCfg = Release|Any CPU
+		{8B0CECD0-6FDD-4B53-9526-8F61A21ACE77}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

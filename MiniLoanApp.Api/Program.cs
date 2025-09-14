@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Mini_Loan_App.Infrastructure;
+using Mini_Loan_App.Infrastructure.Messaging;
 using Mini_Loan_App.Infrastructure.Repositories;
 using Mini_Loan_App.Services;
 using Mini_Loan_App.Services.Interfaces;
@@ -26,6 +27,12 @@ public class Program
         builder.Services.AddScoped<ILoanService, LoanService>();
         builder.Services.AddScoped<IApprovalPolicy, ApprovalPolicy>();
         builder.Services.AddScoped<IAmortizationService, AmortizationService>();
+
+        builder.Services.AddSingleton<ILoanTopicPublisher>(sp =>
+        {
+            var connectionString = builder.Configuration.GetConnectionString("ServiceBusConnection");
+            return new LoanTopicPublisher(connectionString);
+        });
         
         
         builder.Services.AddAuthorization();
