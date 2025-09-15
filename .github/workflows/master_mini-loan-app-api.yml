@@ -30,7 +30,7 @@ jobs:
         run: dotnet test Mini-Loan-App.sln --configuration Release --no-build --verbosity normal
 
       - name: dotnet publish
-        run: dotnet publish MiniLoanApp.Api/MiniLoanApp.Api.csproj -c Release -o ./publish
+        run: dotnet publish MiniLoanApp.Api/MiniLoanApp.Api.csproj -c Release -r linux-x64 --self-contained false -o ./publish
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
