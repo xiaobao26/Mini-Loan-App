@@ -27,7 +27,7 @@ jobs:
         run: dotnet build --configuration Release
         
       - name: Run unit tests
-        run: dotnet test --no-build --verbosity normal
+        run: dotnet test Mini-Loan-App.sln --configuration Release --no-build --verbosity normal
 
       - name: dotnet publish
         run: dotnet publish MiniLoanApp.Api/MiniLoanApp.Api.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp
