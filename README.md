@@ -51,13 +51,13 @@ Features:
 ---
 
 ## 🚀 Roadmap
-- ✅ Step 1: Database connection + Init migration
-- ✅ Step 2: Loan Application flow + Query Loan
-- ✅ Step 3: Repayment schedule generation(Equal Monthly Installment)
-- ✅ Step 4: Unit tests for core logic
-- ✅ Step 5: Event publishing with Service Bus
-- ✅ Step 6: Azure Function consumer (simulate notifications)
-- 🔜 Step 7: CI/CD pipeline with GitHub Actions
-- 🔜 Step 8: Deploy API to Azure App Service
-- 🔜 Step 9: Secure secrets with Azure Key Vault
+- ✅ Step 1: Database connection + Init migration (PostgreSQL, local dev)
+- ✅ Step 2: Loan Application flow (create loan, query loan by Id)
+- ✅ Step 3: Repayment schedule generation(Equal Monthly Installment -EMI)
+- ✅ Step 4: Unit tests for core loan logic (xUnit + FluentAssertions)
+- ✅ Step 5: Event publishing with Azure Service Bus (Topic based)
+- ✅ Step 6: Azure Function consumer (listens to Service Bus, simulates loan notifications)
+- ✅ Step 7: CI/CD pipeline with GitHub Actions (build, test, deploy)
+- 🔜 Step 8: Deploy API to Azure App Service (Swagger available online)
+- ✅ Step 9: Deploy Azure Function to Azure (auto triggered by Service Bus events)
 
