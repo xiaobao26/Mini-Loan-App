@@ -30,7 +30,7 @@ jobs:
         run: dotnet test Mini-Loan-App.sln --configuration Release --no-build --verbosity normal
 
       - name: dotnet publish
-        run: dotnet publish MiniLoanApp.Api/MiniLoanApp.Api.csproj -c Release -o ./publish_output
+        run: dotnet publish MiniLoanApp.Api/MiniLoanApp.Api.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -64,5 +64,5 @@ jobs:
         with:
           app-name: 'mini-loan-app-api'
           slot-name: 'Production'
-          package: ./publish_output
+          package: .
           
