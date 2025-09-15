@@ -45,6 +45,7 @@ Features:
     - Azure Service Bus
     - Azure Functions
     - Azure Key Vault
+    -  Azurite (local Azure Storage emulator for testing)
 - **DevOps**: GitHub Actions, Docker
 - **Testing**: xUnit, FluentAssertions
 
