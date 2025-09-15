@@ -59,6 +59,6 @@ Features:
 - ✅ Step 5: Event publishing with Azure Service Bus (Topic based)
 - ✅ Step 6: Azure Function consumer (listens to Service Bus, simulates loan notifications)
 - ✅ Step 7: CI/CD pipeline with GitHub Actions (build, test, deploy)
-- 🔜 Step 8: Deploy API to Azure App Service (Swagger available online)
+- ✅ Step 8: Deploy API to Azure App Service (Swagger available online)
 - ✅ Step 9: Deploy Azure Function to Azure (auto triggered by Service Bus events)
 
