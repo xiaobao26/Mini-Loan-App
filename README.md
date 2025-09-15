@@ -1,4 +1,5 @@
 # Mini Loan Application
+🌐 **[Live API Swagger UI](https://mini-loan-app-api-bdbzafd7a6dkb2dm.australiaeast-01.azurewebsites.net/swagger/index.html)**
 
 ## 🎯 Overview
 This is a **cloud-ready .NET 8 demo project** that simulates a minimal loan application system.  
