@@ -36,6 +36,15 @@ Features:
 - **Secrets**: prepared for **Azure Key Vault** integration (DB connection strings, Service Bus keys)
 - **Deployment**: runs locally with Docker, deployable to **Azure App Service**
 
+## ✅ CI/CD & Automated Testing
+
+This project includes a GitHub Actions pipeline that:
+
+- Builds the solution on every push to `master`
+- Runs all unit tests (`xUnit`) automatically
+- Publishes to Azure App Service if tests pass
+
+CI/CD ensures every merged feature is tested before going live.
 
 ## 🛠️ Tech Stack
 - **Framework**: ASP.NET Core 8
