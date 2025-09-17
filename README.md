@@ -6,10 +6,10 @@ This is a **cloud-ready .NET 8 demo project** that simulates a minimal loan appl
 
 Features:
 - Loan application & auto-approval business logic
-- Data persistence with EF Core + relational database
-- Event-driven design with Azure Service Bus & Functions
-- Deployment readiness with CI/CD, Docker, and App Service
-- Secure configuration with Azure Key Vault (extensible)
+- Loan query & repayment schedule generation (EMI formula)
+- Event-driven design: API publishes loan events → Service Bus → Azure Function consumes them
+- CI/CD with GitHub Actions (build → test → deploy)
+- Extensible with Azure SQL, Key Vault, and 3rd-party services (Email Service, SMS Service)
 
 ---
 
