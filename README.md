@@ -54,6 +54,18 @@ This project includes a GitHub Actions pipeline that:
 
 CI/CD ensures every merged feature is tested before going live.
 
+## 🔒 Secrets Management
+For this demo:
+- API Key is stored in appsettings.Development.json(easy for local test)
+- Database connection string uses local PostgreSQL(empty, replace your password)
+- Azure Service Bus key is also kept in local configuration(empty, replace your key)
+
+For production:
+- All secrets (**API keys, DB connection strings, Service Bus keys**) should be stored in Azure Key Vault
+
+
+
+
 ## 🛠️ Tech Stack
 - **Framework**: ASP.NET Core 8
 - **ORM**: EF Core 8
