@@ -2,16 +2,19 @@
 🌐 **[Live API Swagger UI](https://mini-loan-app-api-bdbzafd7a6dkb2dm.australiaeast-01.azurewebsites.net/swagger/index.html)**
 
 ## 🎯 Overview
-This is a **cloud-ready .NET 8 demo project** that simulates a minimal loan application system.  
+This is a **cloud-ready .NET 8 production-minded app 💼** that simulates a minimal loan application system.  
 
 Features:
-- Loan application & auto-approval business logic
-- Loan query & repayment schedule generation (EMI formula)
-- Event-driven design: API publishes loan events → Service Bus → Azure Function consumes them
-- CI/CD with GitHub Actions (build → test → deploy)
-- Extensible with Azure SQL, Key Vault, and 3rd-party services (Email Service, SMS Service)
+- 📑 Loan application & auto-approval business logic
+- 🔄 Loan query & repayment schedule generation (EMI formula)
+- 📡 Event-driven design: API → Azure Service Bus → Azure Function consumer
+- 🔒 Security-first: API Key validation + centralized exception handling middleware
+- 🧾 Compliance-ready: Audit logging middleware for traceability
+- ☁️ Cloud-ready: Azure SQL, Key Vault, Service Bus, Functions
+- 🤖 DevOps: CI/CD with GitHub Actions (build → test → deploy)
+- 📊 Unit-tested business rules (loan approvals, EMI calculations)
+- 📈 Extensible with 3rd-party services (Email, SMS)
 
----
 
 ## 📚 What This Project Can Do
 
@@ -30,8 +33,13 @@ Features:
 - An **Azure Function** subscribes to these events and processes them
     - In demo: logs the event
     - In extension: can send Email (SendGrid) or SMS (Twilio)
+### 3. Cross-Cutting Concerns (Middleware)
 
-### 3. Cloud-Ready Infrastructure
+- 🔑 API Key Middleware → Secures APIs from unauthorized access
+- 🛡️ Exception Handling Middleware → Catches and logs unhandled errors, returns safe responses
+- 🧾 Request Logging Middleware → Provides an audit trail for loan applications & approvals
+
+### 4. Cloud-Ready Infrastructure
 - **Database**: runs locally on PostgreSQL, but easily switchable to **Azure SQL** with EF Core provider change
 - **Secrets**: prepared for **Azure Key Vault** integration (DB connection strings, Service Bus keys)
 - **Deployment**: runs locally with Docker, deployable to **Azure App Service**
@@ -71,4 +79,6 @@ CI/CD ensures every merged feature is tested before going live.
 - ✅ Step 7: CI/CD pipeline with GitHub Actions (build, test, deploy)
 - ✅ Step 8: Deploy API to Azure App Service (Swagger available online)
 - ✅ Step 9: Deploy Azure Function to Azure (auto triggered by Service Bus events)
-
+- 🔜 Step 10: Security & Compliance Enhancements
+  - Logging/Audit Middleware (in progress)
+  - Health checks & observability (planned)
